@@ -24,7 +24,7 @@ SECRET_KEY = '-zt)2gsecy6$dz-cp^$!6b!@cu2$gsoi1%47^$u^xfw(q$byl+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ghdesign.pythonanywhere.com']
+#ALLOWED_HOSTS = ['ghdesign.pythonanywhere.com']
 
 # Application definition
 
