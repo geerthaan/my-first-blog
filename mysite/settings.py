@@ -124,7 +124,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-=======
+
 """
 Django settings for mysite project.
 
@@ -246,4 +246,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
->>>>>>> 0bc3daa9d7048fb09c980b2c6e7ef72c099e07e4
