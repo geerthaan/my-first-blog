@@ -6,7 +6,17 @@
             <div class="date">
             <p>published: {{ post.published_date }}</p>
             </div>
-           <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+           <!--
+           get url from blog/urls.py, with the name post_list:
+           code in there:
+           path('post/<int:pk>/', views.post_detail, name='post_detail'),
+
+           in this case '/post/' and add primary key of record to it
+           /post/3 for example,
+            for the third record (object) from the database
+            http://127.0.0.1:8000/post/3/
+           -->
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
