@@ -8,6 +8,8 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)
+    # models fields are always required, unless you add
+    # blank=True, null=True
     published_date = models.DateTimeField(
             blank=True, null=True)
 
