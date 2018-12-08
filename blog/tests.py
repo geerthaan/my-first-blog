@@ -65,12 +65,12 @@ class HomePageTests(TestCase):
         response = self.client.get(reverse('post_new'))
         path = response.request['PATH_INFO']
         print(path)
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 302)
         self.assertEquals(path, "/post/new/")
 
     def test_a5_view_url_by_name_post_edit(self):
         response = self.client.get(reverse('post_edit', kwargs={'pk': 1}))
         path = response.request['PATH_INFO']
         print(path)
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 302)
         self.assertEquals(path, "/post/1/edit/")
