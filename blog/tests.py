@@ -3,6 +3,9 @@
  python manage.py test --verbosity 2
 
 create fixture:
+3 lines copy each line one by one,  to console, to append the whole line
+don't copy the 3 lines at one once to console (to avoid errors)
+
 python manage.py dumpdata --format=json --natural-foreign
 --natural-primary -e contenttypes -e auth.Permission
 --indent 4 > blog/fixtures/testdata.json
@@ -74,3 +77,27 @@ class HomePageTests(TestCase):
         print(path)
         self.assertEquals(response.status_code, 302)
         self.assertEquals(path, "/post/1/edit/")
+
+    def test_a6_view_url_by_name_draft_list(self):
+        response = self.client.get(reverse('post_draft_list'))
+        path = response.request['PATH_INFO']
+        print(path)
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(path, "/drafts/")
+
+    # created a draft, that has pk 27 and created a fixture again,
+    #  that contained that pk record
+    def test_a6_view_url_by_name_publish(self):
+        response = self.client.get(reverse('post_publish', kwargs={'pk': 27}))
+        path = response.request['PATH_INFO']
+        print(path)
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(path, "/post/27/publish/")
+
+    def test_a6_view_url_by_name_remove(self):
+        response = self.client.get(reverse('post_remove', kwargs={'pk': 27}))
+        path = response.request['PATH_INFO']
+        print(path)
+        self.assertEquals(response.status_code, 302)
+        self.assertEquals(path, "/post/27/remove/")
+
