@@ -27,9 +27,9 @@ from django.urls import reverse
 
 from django.utils import timezone
 
-from . import views
-from . import models
-from .models import Post
+from .. import views
+from .. import models
+from .. models import Post
 
 
 # Create your tests here.
@@ -43,6 +43,7 @@ class HomePageTests(TestCase):
         # Set up data for the whole TestCase, so runs just once, at the start
         call_command('loaddata', './blog/fixtures/testdata.json', verbosity=0)
 
+    # testing of the views
     def test_a1_home_page_status_code(self):
         response = self.client.get('/')
         path = response.request['PATH_INFO']
